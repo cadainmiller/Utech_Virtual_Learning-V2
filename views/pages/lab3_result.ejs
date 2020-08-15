@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<% include ../partials/head %>
+
+<body>
+    <% include ../partials/nav %>
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Thevenin's Theorem</h1>
+                <h2>Using Parallel Resistances</h2>
+                <p class="lead">Thevenin’s Theorem states that “Any linear circuit containing several voltages and
+                    resistances can be replaced by just one single voltage in series with a single resistance connected
+                    across the load“.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container pb-xl-5">
+        <div class="card">
+            <h5 class="card-header">Result</h5>
+            <div class="card-body">
+
+                <div class="card mt-3 mb-3">
+                    <div class="card-header">
+                        <h6>Voltage</h6>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <fieldset disabled>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">Load Voltage</div>
+                                    </div>
+                                    <input type="text" class="form-control" id="inlineFormInputGroup"
+                                        placeholder="<%= VlD %>">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">V</span>
+                                    </div>
+                                </div>
+
+
+                            </fieldset>
+
+                        </form>
+
+                    </div>
+                </div>
+                <a href="/lab3" class="btn btn-primary">Repeat Calculation</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <% include ../partials/footer %>
+    <% include ../partials/scripts %>
+</body>
+
+</html>

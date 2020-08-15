@@ -1,0 +1,31 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00b7ff;
+}
+
+.img_size {
+  padding-left: 15%;
+  padding-bottom: 3%;
+}
+
+.img_size img {
+  width: 400px;
+  height: 300px;
+}
+
+.form_size {
+  padding-left: 20%;
+}
+
+.img-size {
+  width: 100%;
+  height: 450px;
+}
+
+.card {
+  height: 600px;
+}
