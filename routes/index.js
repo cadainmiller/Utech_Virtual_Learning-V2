@@ -7,12 +7,14 @@ const {
   complex,
   add,
   multiply,
+  divide,
   sin,
   sqrt,
   pi,
   equal,
   sort,
   format,
+  compareNatural,
 } = require("mathjs");
 
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -243,25 +245,21 @@ router.post("/cal_lab5", urlencodedParser, function (req, res, next) {
   //mutiz4andz5 = z4xz5Re * z4xz5Im;
   //console.log(mutiz4andz5);
 
-  z4xz5Re = z5.re + z4.re;
-  z4xz5Im = z5.im + z4.im;
+  // addz4andz5 = Complex.add(z4xz5Re, z4xz5Im);
+  console.log(add(z5, z4));
+  addz4andz5 = add(z5, z4);
+  console.log(multiply(z5, z4));
+  mutiz4andz5 = multiply(z5, z4);
 
-  function mul(z1, z2) {
-    return new Complex16([
-      z1.re * z2.re - z1.im * z2.im,
-      z1.re * z2.im + z1.im * z2.re,
-    ]);
-  }
-
-  z4xz5Re1 = mul(z5.re, z4.re);
-  z4xz5Im1 = mul(z5.im, z4.im);
-
+  console.log(divide(add(z5, z4), multiply(z5, z4)));
+  zz_val = divide(addz4andz5, mutiz4andz5);
   //addz4andz5 = z4xp5Re + z4xp5Im;
   //console.log("Add" + addz4andz5);
   //zz_val = mutiz4andz5 / addz4andz5;
-  // console.log(zz_val)
-  zz_val = complex(z4xz5Re, z4xz5Im);
   console.log(zz_val);
+
+  //zz_val = complex(z4xz5Re, z4xz5Im);
+  // console.log(zz_val);
   // degrees = zz_val.arg() * (180 / Math.PI);
   // console.log(zz_val.abs(), degrees);
 
