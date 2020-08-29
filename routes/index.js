@@ -394,10 +394,10 @@ router.post("/cal_lab5", urlencodedParser, function (req, res, next) {
     v2po: par3degrees.toFixed(4),
 
     //Current Branch
-    l1im: Itotal.arg().toFixed(4),
+    l1im: Itotal.abs().toFixed(4),
     l1po: Itotaldegrees.toFixed(4),
 
-    lz2im: Iz2.arg().toFixed(4),
+    lz2im: Iz2.abs().toFixed(4),
     lz2po: Iz2degrees.toFixed(4),
 
     lr3im: Ir3.abs().toFixed(4),
