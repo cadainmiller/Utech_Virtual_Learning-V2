@@ -51,8 +51,14 @@
     <div class="container container-hi">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
+          <a class="nav-link active" data-toggle="tab" href="#input" role="tab"
             >Input Voltage</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#home" role="tab"
+            >Branch Voltage</a
           >
         </li>
         <li class="nav-item">
@@ -69,13 +75,46 @@
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div class="tab-pane active" id="home" role="tabpanel">
+        <div class="tab-pane active" id="input" role="tabpanel">
           <div class="card">
             <h5 class="card-header">Result</h5>
             <div class="card-body">
               <div class="card mt-3 mb-3">
                 <div class="card-header">
-                  <h6>VIN</h6>
+                  <h6>Input Voltage</h6>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <fieldset disabled>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">VIN</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= vin_val %> < 0 &deg"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">V</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <a href="/lab5" class="btn btn-primary">Repeat Calculation</a>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="home" role="tabpanel">
+          <div class="card">
+            <h5 class="card-header">Result</h5>
+            <div class="card-body">
+              <div class="card mt-3 mb-3">
+                <div class="card-header">
+                  <h6>Branch Voltage</h6>
                 </div>
                 <div class="card-body">
                   <form>
@@ -130,7 +169,7 @@
                       <h6>Branch 1</h6>
                       <div class="input-group mb-2">
                         <div class="input-group-prepend">
-                          <div class="input-group-text">I1</div>
+                          <div class="input-group-text">I1&nbsp;</div>
                         </div>
                         <input
                           type="text"

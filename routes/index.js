@@ -388,6 +388,9 @@ router.post("/cal_lab5", urlencodedParser, function (req, res, next) {
   console.log("branch z5 " + phase_diff5);
 
   res.render("pages/lab5_result", {
+    //Input Voltage
+    vin_val: vin_val.toFixed(2),
+
     v1im: par1.abs().toFixed(4),
     v1po: par1degrees.toFixed(4),
     v2im: par3.abs().toFixed(4),
