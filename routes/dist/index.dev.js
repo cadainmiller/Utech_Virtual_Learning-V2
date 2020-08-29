@@ -361,9 +361,9 @@ router.post("/cal_lab5", urlencodedParser, function (req, res, next) {
     lz2po: Iz2degrees.toFixed(4),
     lr3im: Ir3.abs().toFixed(4),
     lr3po: Ir3degrees.toFixed(4),
-    lz4im: Iz4.arg().toFixed(4),
+    lz4im: Iz4.abs().toFixed(4),
     lz4po: Iz4degrees.toFixed(4),
-    lz5im: Iz5.arg().toFixed(4),
+    lz5im: Iz5.abs().toFixed(4),
     lz5po: Iz5degrees.toFixed(4),
     //Branch Phase Differences
     z2: phase_diff2.toFixed(4),
