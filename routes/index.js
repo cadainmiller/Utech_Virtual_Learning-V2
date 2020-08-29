@@ -6,6 +6,7 @@ var Complex = require("complex.js");
 const {
   complex,
   add,
+  subtract,
   multiply,
   divide,
   matrix,
@@ -298,22 +299,93 @@ router.post("/cal_lab5", urlencodedParser, function (req, res, next) {
 
   vin_val = vsupply_val.abs();
 
-  z2 = divide(add(z2, r1, r3), 1);
+  // z2 = divide(add(z2, r1, r3), 1);
 
-  r3a = divide(add(r3, z4, z5), 1);
+  // r3a = divide(add(r3, z4, z5), 1);
 
-  y = matrix([
-    [z2.arg(), z2.abs(), -1 / r3],
-    [-1 / r3, r3a],
-  ]);
-
-  console.log(y);
-
-  // i = matrix([[vin_val / r1], [0]]);
+  // y = matrix([
+  //   [z2.arg(), z2.abs(), -1 / r3],
+  //   [-1 / r3, r3a],
+  // ]);
 
   // console.log(y);
 
-  // console.log(multiply(y ^ -1, i));
+  com_ad1 = divide(1, z2);
+  com_ad2 = divide(1, r1);
+  com_ad3 = divide(1, r3);
+  m_add1 = add(com_ad1, com_ad2, com_ad3);
+  com_ad4 = divide(1, r3);
+  com_ad5 = divide(1, z4);
+  com_ad6 = divide(1, z5);
+  com_ad7 = divide(1, r3);
+  m_add2 = add(com_ad4, com_ad5, com_ad6);
+  com_ad8 = divide(vin_val, r1);
+
+  com_ad10 = multiply(m_add1, m_add2);
+  com_ad11 = multiply(com_ad4, com_ad7);
+  com_ad12 = subtract(com_ad10, com_ad11);
+  com_ad13 = divide(1, com_ad12);
+
+  dom_1 = multiply(m_add2, com_ad13);
+  dom_2 = multiply(m_add1, com_ad13);
+  dom_3 = multiply(com_ad4, com_ad13);
+  dom_4 = multiply(com_ad7, com_ad13);
+
+  par1 = multiply(dom_1, com_ad8);
+  par2 = multiply(dom_4, 0);
+  par3 = multiply(dom_3, com_ad8);
+  par4 = multiply(dom_2, 0);
+  final_matr = [par1, par3]; //par1 result is v1 and par2 result is v2 this the final 2x1 matrix needed
+
+  par1degrees = par1.arg() * (180 / Math.PI);
+  console.log(par1.abs(), par1degrees);
+
+  par3degrees = par3.arg() * (180 / Math.PI);
+  console.log(par3.abs(), par3degrees);
+  //Branch currents outputs must be in polar form
+  //branch  1
+  Itotal_rem = subtract(vin_val, par1);
+  Itotal = divide(Itotal_rem, r1);
+  degrees = Itotal.arg() * (180 / Math.PI);
+  console.log("branch 1 " + Itotal.abs(), degrees);
+  //branch 2
+  Iz2 = divide(par1, z2);
+  degrees = Iz2.arg() * (180 / Math.PI);
+  console.log("branch 2 " + Iz2.abs(), degrees);
+  //branch 3
+  Ir3sub = subtract(par1, par3);
+  Ir3 = divide(Ir3sub, r3);
+  degrees = Ir3.arg() * (180 / Math.PI);
+  console.log("branch 3 " + Ir3.abs(), degrees);
+
+  //branch 4
+  Iz4 = divide(par3, z4);
+  degrees = Iz4.arg() * (180 / Math.PI);
+  console.log("branch 4 " + Iz4.abs(), degrees);
+
+  //branch 5
+  Iz5 = divide(par3, z5);
+  degrees = Iz5.arg() * (180 / Math.PI);
+  console.log("branch 5 " + Iz5.abs(), degrees);
+
+  //phase and voltage relationship w/ voltage supply
+  //branch z2
+  phase1 = divide(xl2, r2);
+  phase_diff2 = Math.atan(phase1);
+  phase_diff2 = phase_diff2 * (180 / Math.PI);
+  console.log("branch z2 " + phase_diff2);
+
+  //branch z4
+  phase2 = divide(xc4, r4);
+  phase_diff4 = Math.atan(phase2);
+  phase_diff4 = phase_diff4 * (180 / Math.PI);
+  console.log("branch z4 " + phase_diff4);
+
+  //branch z5
+  phase3 = divide(xlc5, r5);
+  phase_diff5 = Math.atan(phase3);
+  phase_diff5 = phase_diff5 * (180 / Math.PI);
+  console.log("branch z5 " + phase_diff5);
 
   // res.render("pages/lab4_result", {
   //   VlD: VlD,

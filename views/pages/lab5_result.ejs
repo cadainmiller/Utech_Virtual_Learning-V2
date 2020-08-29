@@ -1,60 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<% include ../partials/head %>
+  <% include ../partials/head %>
 
-<body>
+  <body>
     <% include ../partials/nav %>
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
-            <div class="container">
-                <h1 class="display-4">Alternating Current Circuits</h1>
-                <p class="lead">Alternating current is a periodically varying current,
-                    the average value of which,
-                    over a period, is zero.
-                </p>
-            </div>
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Alternating Current Circuits</h1>
+          <p class="lead">
+            Alternating current is a periodically varying current, the average
+            value of which, over a period, is zero.
+          </p>
         </div>
+      </div>
     </div>
-    <div class="container pb-xl-5">
-        <div class="card">
+    <!-- <div class="container pb-xl-5">
+      <div class="card">
+        <h5 class="card-header">Result</h5>
+        <div class="card-body">
+          <div class="card mt-3 mb-3">
+            <div class="card-header">
+              <h6>Voltage</h6>
+            </div>
+            <div class="card-body">
+              <form>
+                <fieldset disabled>
+                  <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                      <div class="input-group-text">Load Voltage</div>
+                    </div>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="inlineFormInputGroup"
+                    />
+                    <div class="input-group-append">
+                      <span class="input-group-text">V</span>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
+          </div>
+          <a href="/lab5" class="btn btn-primary">Repeat Calculation</a>
+        </div>
+      </div>
+    </div> -->
+
+    <div class="container container-hi">
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
+            >Profile</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
+            >Messages</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="tab" href="#settings" role="tab"
+            >Settings</a
+          >
+        </li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div class="tab-pane active" id="home" role="tabpanel">
+          <div class="card">
             <h5 class="card-header">Result</h5>
             <div class="card-body">
-
-                <div class="card mt-3 mb-3">
-                    <div class="card-header">
-                        <h6>Voltage</h6>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <fieldset disabled>
-                                <div class="input-group mb-2">
-                                    <div class="input-group-prepend">
-                                        <div class="input-group-text">Load Voltage</div>
-                                    </div>
-                                    <input type="text" class="form-control" id="inlineFormInputGroup"
-                                        placeholder="<%= VlD %>">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text">V</span>
-                                    </div>
-                                </div>
-
-
-                            </fieldset>
-
-                        </form>
-
-                    </div>
+              <div class="card mt-3 mb-3">
+                <div class="card-header">
+                  <h6>Voltage</h6>
                 </div>
-                <a href="/lab5" class="btn btn-primary">Repeat Calculation</a>
+                <div class="card-body">
+                  <form>
+                    <fieldset disabled>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">V1</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">V</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <a href="/lab4" class="btn btn-primary">Repeat Calculation</a>
             </div>
+          </div>
         </div>
-
+        <div class="tab-pane" id="profile" role="tabpanel">Profile</div>
+        <div class="tab-pane" id="messages" role="tabpanel">Messages</div>
+      </div>
     </div>
 
-
-
-    <% include ../partials/footer %>
-    <% include ../partials/scripts %>
-</body>
-
+    <% include ../partials/footer %> <% include ../partials/scripts %>
+  </body>
 </html>
