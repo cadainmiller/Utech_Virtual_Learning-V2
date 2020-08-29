@@ -52,22 +52,17 @@
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
           <a class="nav-link active" data-toggle="tab" href="#home" role="tab"
-            >Home</a
+            >Input Voltage</a
           >
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#profile" role="tab"
-            >Profile</a
+            >Branch Current</a
           >
         </li>
         <li class="nav-item">
           <a class="nav-link" data-toggle="tab" href="#messages" role="tab"
-            >Messages</a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#settings" role="tab"
-            >Settings</a
+            >Branch Phase Differences</a
           >
         </li>
       </ul>
@@ -80,7 +75,7 @@
             <div class="card-body">
               <div class="card mt-3 mb-3">
                 <div class="card-header">
-                  <h6>Voltage</h6>
+                  <h6>Input Voltage</h6>
                 </div>
                 <div class="card-body">
                   <form>
@@ -93,6 +88,21 @@
                           type="text"
                           class="form-control"
                           id="inlineFormInputGroup"
+                          placeholder="<%= v1im %> < <%= v1po %>&deg"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">V</span>
+                        </div>
+                      </div>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">V2</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= v2im %> < <%= v2po %>&deg"
                         />
                         <div class="input-group-append">
                           <span class="input-group-text">V</span>
@@ -102,12 +112,173 @@
                   </form>
                 </div>
               </div>
-              <a href="/lab4" class="btn btn-primary">Repeat Calculation</a>
+              <a href="/lab5" class="btn btn-primary">Repeat Calculation</a>
             </div>
           </div>
         </div>
-        <div class="tab-pane" id="profile" role="tabpanel">Profile</div>
-        <div class="tab-pane" id="messages" role="tabpanel">Messages</div>
+        <div class="tab-pane" id="profile" role="tabpanel">
+          <div class="card">
+            <h5 class="card-header">Result</h5>
+            <div class="card-body">
+              <div class="card mt-3 mb-3">
+                <div class="card-header">
+                  <h6>Branch Current</h6>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <fieldset disabled>
+                      <h6>Branch 1</h6>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">I1</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= l1im %> < <%= l1po %>&deg"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">A</span>
+                        </div>
+                      </div>
+                      <h6>Branch 2</h6>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">IZ2</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= lz2im %> < <%= lz2po %>&deg"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">A</span>
+                        </div>
+                      </div>
+
+                      <h6>Branch 3</h6>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">IR3</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= lr3im %> < <%= lr3po %>&deg"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">A</span>
+                        </div>
+                      </div>
+
+                      <h6>Branch 4</h6>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">IZ4</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= lz4im %> < <%= lz4po %>&deg"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">A</span>
+                        </div>
+                      </div>
+
+                      <h6>Branch 5</h6>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">IZ5</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= lz5im %> < <%= lz5po %>&deg"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">A</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <a href="/lab5" class="btn btn-primary">Repeat Calculation</a>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane" id="messages" role="tabpanel">
+          <div class="card">
+            <h5 class="card-header">Result</h5>
+            <div class="card-body">
+              <div class="card mt-3 mb-3">
+                <div class="card-header">
+                  <h6>Branch Phase Differences</h6>
+                </div>
+                <div class="card-body">
+                  <form>
+                    <fieldset disabled>
+                      <h6>Branch of Z2</h6>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">&empty;</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= z2 %>"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">&deg</span>
+                        </div>
+                      </div>
+
+                      <h6>Branch of Z4</h6>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">&empty;</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= z4 %>"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">&deg</span>
+                        </div>
+                      </div>
+
+                      <h6>Branch of Z5</h6>
+                      <div class="input-group mb-2">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">&empty;</div>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control"
+                          id="inlineFormInputGroup"
+                          placeholder="<%= z5 %>"
+                        />
+                        <div class="input-group-append">
+                          <span class="input-group-text">&deg</span>
+                        </div>
+                      </div>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+              <a href="/lab5" class="btn btn-primary">Repeat Calculation</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

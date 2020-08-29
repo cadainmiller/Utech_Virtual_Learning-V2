@@ -346,27 +346,27 @@ router.post("/cal_lab5", urlencodedParser, function (req, res, next) {
   //branch  1
   Itotal_rem = subtract(vin_val, par1);
   Itotal = divide(Itotal_rem, r1);
-  degrees = Itotal.arg() * (180 / Math.PI);
-  console.log("branch 1 " + Itotal.abs(), degrees);
+  Itotaldegrees = Itotal.arg() * (180 / Math.PI);
+  console.log("branch 1 " + Itotal.abs(), Itotaldegrees);
   //branch 2
   Iz2 = divide(par1, z2);
-  degrees = Iz2.arg() * (180 / Math.PI);
-  console.log("branch 2 " + Iz2.abs(), degrees);
+  Iz2degrees = Iz2.arg() * (180 / Math.PI);
+  console.log("branch 2 " + Iz2.abs(), Iz2degrees);
   //branch 3
   Ir3sub = subtract(par1, par3);
   Ir3 = divide(Ir3sub, r3);
-  degrees = Ir3.arg() * (180 / Math.PI);
-  console.log("branch 3 " + Ir3.abs(), degrees);
+  Ir3degrees = Ir3.arg() * (180 / Math.PI);
+  console.log("branch 3 " + Ir3.abs(), Ir3degrees);
 
   //branch 4
   Iz4 = divide(par3, z4);
-  degrees = Iz4.arg() * (180 / Math.PI);
-  console.log("branch 4 " + Iz4.abs(), degrees);
+  Iz4degrees = Iz4.arg() * (180 / Math.PI);
+  console.log("branch 4 " + Iz4.abs(), Iz4degrees);
 
   //branch 5
   Iz5 = divide(par3, z5);
-  degrees = Iz5.arg() * (180 / Math.PI);
-  console.log("branch 5 " + Iz5.abs(), degrees);
+  Iz5degrees = Iz5.arg() * (180 / Math.PI);
+  console.log("branch 5 " + Iz5.abs(), Iz5degrees);
 
   //phase and voltage relationship w/ voltage supply
   //branch z2
@@ -387,9 +387,33 @@ router.post("/cal_lab5", urlencodedParser, function (req, res, next) {
   phase_diff5 = phase_diff5 * (180 / Math.PI);
   console.log("branch z5 " + phase_diff5);
 
-  // res.render("pages/lab4_result", {
-  //   VlD: VlD,
-  // });
+  res.render("pages/lab5_result", {
+    v1im: par1.abs().toFixed(4),
+    v1po: par1degrees.toFixed(4),
+    v2im: par3.abs().toFixed(4),
+    v2po: par3degrees.toFixed(4),
+
+    //Current Branch
+    l1im: Itotal.arg().toFixed(4),
+    l1po: Itotaldegrees.toFixed(4),
+
+    lz2im: Iz2.arg().toFixed(4),
+    lz2po: Iz2degrees.toFixed(4),
+
+    lr3im: Ir3.abs().toFixed(4),
+    lr3po: Ir3degrees.toFixed(4),
+
+    lz4im: Iz4.arg().toFixed(4),
+    lz4po: Iz4degrees.toFixed(4),
+
+    lz5im: Iz5.arg().toFixed(4),
+    lz5po: Iz5degrees.toFixed(4),
+
+    //Branch Phase Differences
+    z2: phase_diff2.toFixed(4),
+    z4: phase_diff4.toFixed(4),
+    z5: phase_diff5.toFixed(4),
+  });
 });
 
 module.exports = router;
