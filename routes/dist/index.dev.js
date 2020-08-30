@@ -33,6 +33,11 @@ router.get("/", function (req, res, next) {
     title: "Express"
   });
 });
+router.get("/about", function (req, res, next) {
+  res.render("pages/about", {
+    title: "Express"
+  });
+});
 router.get("/lab1", function (req, res, next) {
   res.render("pages/lab1", {
     title: "Express"

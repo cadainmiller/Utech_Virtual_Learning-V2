@@ -33,3 +33,8 @@ a {
 .container-hi {
   height: 600px;
 }
+
+.pt-about {
+  padding-top: 6rem;
+  padding-bottom: 5rem;
+}
